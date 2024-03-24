@@ -52,6 +52,9 @@
   
   <!-- 复制提醒 -->
   <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" type='text/css' media='all' />
+  
+  <!-- 支持Latex语言 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
 
   <!-- 
   <style>
@@ -111,17 +114,17 @@
       name: 'Yanranのdocs',
 
       // 点击文档标题后跳转的链接地址
-      nameLink: '',
+      nameLink: 'https://yanran425.github.io/Yanran_docsify/',
 
       // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
-      repo: 'https://github.com/zxiaosi/doc.git',
+      repo: 'https://github.com/yanran425/Yanran_docsify',
 
       // 顶部导航栏支持，默认加载的是项目根目录下的_navbar.md文件
       loadNavbar: true,
 
       // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
       loadSidebar: true,
-      sidebarDisplayLevel: 5,
+      sidebarDisplayLevel: 2,
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
@@ -134,7 +137,7 @@
       maxLevel: 5,
 
       // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
-      subMaxLevel: 2,
+      subMaxLevel: 3,
 
       // 小屏设备下合并导航栏到侧边栏
       mergeNavbar: true,
@@ -155,32 +158,35 @@
         previousText: '上一页',
         nextText: '下一页',
         crossChapter: true,
-        crossChapterText: true,
+        crossChapterText: false,
       },
 
       //搜索框相关设置
       search: {
-        paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
+        paths: 'auto', // [] or 'auto'
         placeholder: '🔍 搜索',
-        // 支持本地化
-        placeholder: {
-          '/zh-cn/': '🔍 搜索',
-          '/': 'Type to search'
-        },
-        noData: '😒 找不到结果',
-        // Headline depth, 1 - 6
-        depth: 6,
+         noData: '😒 找不到结果',
+        // 搜索标题的最大层级, 1 - 6
+        depth: 3,
+        // 是否隐藏其他侧边栏内容
         hideOtherSidebarContent: false,
-        namespace: 'Docsify-Guide',
         // 过期时间，单位毫秒，默认一天
-        maxAge: 86400000,
+        maxAge: 86400000, 
+
+        // 避免搜索索引冲突同一域下的多个网站之间
+        // namespace: 'Yanranのdocs',
+        // 使用不同的索引作为路径前缀（namespaces）
+        // 注意：仅适用于 paths: 'auto' 模式
+
+        // 初始化索引时，我们从侧边栏查找第一个路径,如果它与列表中的前缀匹配，我们将切换到相应的索引
+        // pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
       },
 
       // 回到顶部
       scrollToTop: {
         auto: true,
         text: '🔼',
-        right: 12,
+        right: 24,
         bottom: 52,
         offset: 25
       },
@@ -199,9 +205,10 @@
 
       // 页脚
       footer: {
-        copy: '<span>Copyright &copy; 2021 &nbsp 💖 &nbsp</span>',
-        auth: ' <strong><a href="https://github.com/zxiaosi/doc.git" target="_blank">Mr.XiaoSi</a></strong>',
-        pre: '<hr/>',
+        copy: '<span>Copyright &copy; 2023 &nbsp 💖 &nbsp</span>',
+        // copy: '<span id="sitetime"></span> <br/> <span>Copyright &copy; 2021 &nbsp 💖 &nbsp</span>',
+        auth: ' <strong><a href="https://github.com/yanran425/Yanran_docsify" target="_blank">Yanran</a></strong>',
+        // pre: '<hr/>',
         style: 'font-size: 18px; text-align: center;',
       },
     }
@@ -221,8 +228,9 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   
   <!-- 全局搜索功能支持 -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
+  
   <!-- code render-->
   <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-bash.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.js"></script>
@@ -232,21 +240,37 @@
   
   <!-- gitalk支持-->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script>
+ 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+ 
+ <script>
     const gitalk = new Gitalk({
-      clientID: 'Github Application Client ID',
-      clientSecret: 'Github Application Client Secret',
-      repo: 'Github repo',
-      owner: 'Github repo owner',
-      admin: ['Github repo collaborators, only these guys can initialize github issues'],
+      clientID: '4ec2f221eeacd6fab5f9',
+      clientSecret: '6ad50464290267aed39f43a6415782af712b988a',
+      repo: 'Yanran_docsify',
+      owner: 'yanran425',
+      admin: ['yanran425'],
       // facebook-like distraction free mode
-      distractionFreeMode: false
+      distractionFreeMode: false,
     })
   </script>
-  
+
+  <!--使用 Gitter 实现一个 IM 即时通讯聊天室功能-->
+  <!-- <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'zxiaosi/blogshare'
+  };
+  </script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script> -->
+
+
+  <!-- 分页导航插件 -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
   <!--字数统计-->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
 
@@ -269,7 +293,7 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.1.0/dist/docsify-plugin-toc.min.js"></script>
 
   <!-- 底部 上一页下一页 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/external-script.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/ga.min.js"></script>
 
@@ -299,7 +323,7 @@
       microseconds - 0-999之间的整数，做为date对象的毫秒数 */
 
       /* 建站时间 */
-      var t1 = Date.UTC(2021, 03, 01, 00, 00, 00);
+      var t1 = Date.UTC(2023, 12, 25, 00, 00, 00);
       var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
       var diff = t2 - t1;
       var diffYears = Math.floor(diff / years);
@@ -329,7 +353,6 @@
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <!-- 支持 LaTex 语言 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
   <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
 
 
