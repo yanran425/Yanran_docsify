@@ -1,0 +1,338 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: ''
+    }
+  </script>
+-->
+  <!-- Docsify v4 -->
+  <!--
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Yanran_docsify</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  
+  <!-- 设置浏览器图标 -->
+  <link rel="icon" href="/plugin/image/yr.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/plugin/image/yr.ico" type="image/x-icon" />
+  
+  <!-- 默认主题 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css"> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css"> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/pure.css"> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/dolphin.css"> -->
+  
+  <!-- 文件夹样式 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" /> -->
+  
+  <!-- 复制提醒 -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" type='text/css' media='all' />
+
+  <!-- 
+  <style>
+    //以下是侧边栏(自定义)
+    aside.sidebar ul li {
+      margin: 0;
+      position: relative;
+    }
+  
+    aside.sidebar ul li ul {
+      margin: 6px 0;
+    }
+  
+    aside.sidebar ul li p {
+      padding-left: 22px;
+      font-size: 18px;
+      font-weight: normal;
+    }
+  
+    aside.sidebar ul li a {
+      line-height: 35px;
+      font-size: 14px;
+      /* 导航栏字体大小 */
+      padding: 3px 0 3px 22px;
+    }
+  
+    aside.sidebar ul li.active>a {
+      font-size: 16px !important;
+    }
+  
+    aside.sidebar ul li.active>a:before {
+      content: '' !important;
+      position: absolute !important;
+      margin: 0 !important;
+      width: 10px !important;
+      height: 10px !important;
+      top: 15px !important;
+      left: 0px !important;
+      border-radius: 50% !important;
+      background-color: #fed24a !important;
+      box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4) !important;
+    }
+  </style>-->
+
+</head>
+
+<body>
+  <nav>
+    <a href="#/">EN</a>
+    <a href="#/zh-cn/">中文</a>
+  </nav>
+  <!-- 定义加载时候的动作 -->
+  <div id="app">🏃‍🏃‍🏃‍💨加载中...</div>
+  <script>
+    window.$docsify = {
+      // 项目名称
+      name: 'Yanranのdocs',
+
+      // 点击文档标题后跳转的链接地址
+      nameLink: '',
+
+      // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+      repo: 'https://github.com/zxiaosi/doc.git',
+
+      // 顶部导航栏支持，默认加载的是项目根目录下的_navbar.md文件
+      loadNavbar: true,
+
+      // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
+      loadSidebar: true,
+      sidebarDisplayLevel: 5,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+
+      // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+      coverpage: true,
+      onlyCover: false,
+
+      // 最大支持渲染的标题层级
+      maxLevel: 5,
+
+      // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+      subMaxLevel: 2,
+
+      // 小屏设备下合并导航栏到侧边栏
+      mergeNavbar: true,
+
+      // 切换页面后是否自动跳转到页面顶部
+      auto2top: true,
+      coverpage: true,
+
+      //Latex设置
+      latex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$']],
+        customOptions: {}
+      },
+
+      // 底部导航
+      pagination: {
+        previousText: '上一页',
+        nextText: '下一页',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+
+      //搜索框相关设置
+      search: {
+        paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
+        placeholder: '🔍 搜索',
+        // 支持本地化
+        placeholder: {
+          '/zh-cn/': '🔍 搜索',
+          '/': 'Type to search'
+        },
+        noData: '😒 找不到结果',
+        // Headline depth, 1 - 6
+        depth: 6,
+        hideOtherSidebarContent: false,
+        namespace: 'Docsify-Guide',
+        // 过期时间，单位毫秒，默认一天
+        maxAge: 86400000,
+      },
+
+      // 回到顶部
+      scrollToTop: {
+        auto: true,
+        text: '🔼',
+        right: 12,
+        bottom: 52,
+        offset: 25
+      },
+
+      // 字数统计
+      count: {
+        countable: true,
+        position: 'top',
+        margin: '10px',
+        float: 'right',
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese',
+        isExpected: true
+      },
+
+      // 页脚
+      footer: {
+        copy: '<span>Copyright &copy; 2021 &nbsp 💖 &nbsp</span>',
+        auth: ' <strong><a href="https://github.com/zxiaosi/doc.git" target="_blank">Mr.XiaoSi</a></strong>',
+        pre: '<hr/>',
+        style: 'font-size: 18px; text-align: center;',
+      },
+    }
+  </script>
+
+  <!-- MathJax -->
+  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+  
+  <!-- docsify的js依赖 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  
+  <!-- emoji表情支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  
+  <!-- 图片放大缩小支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  
+  <!-- 全局搜索功能支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- code render-->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-bash.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination@latest/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  
+  <!-- gitalk支持-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'Github Application Client ID',
+      clientSecret: 'Github Application Client Secret',
+      repo: 'Github repo',
+      owner: 'Github repo owner',
+      admin: ['Github repo collaborators, only these guys can initialize github issues'],
+      // facebook-like distraction free mode
+      distractionFreeMode: false
+    })
+  </script>
+  
+  <!--字数统计-->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+  <!--回到顶部功能 -->
+  <script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
+
+  <!--页脚 -->
+  <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+  
+  <!-- 多tab支持 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
+
+  <!-- 代码复制 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+
+  <!-- 侧边栏目录折叠 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+  <!-- 页面右侧 TOC -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.1.0/dist/docsify-plugin-toc.min.js"></script>
+
+  <!-- 底部 上一页下一页 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/external-script.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/ga.min.js"></script>
+
+  <!-- 添加网站运行时间统计 -->
+  <script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+      /* 建站时间 */
+      var t1 = Date.UTC(2021, 03, 01, 00, 00, 00);
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = " 本站已安全运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒 ";
+    }
+    siteTime();
+  </script>
+
+  <!-- 复制提醒 -->
+  <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <script>
+    document.body.oncopy = function () {
+      swal("复制成功 ",
+      "若要转载或引用请务必保留原文链接，并申明来源!",
+      "success");
+    };
+  </script>
+
+  <!-- 红心点击特效 -->
+  <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+
+  <!-- 访问量统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <!-- 支持 LaTex 语言 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+
+
+</body>
+
+</html>
