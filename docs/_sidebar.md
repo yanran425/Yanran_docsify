@@ -1,5 +1,5 @@
 - [**WELCOME**](README)
-- **第一章**
-    - [简介](resources\简介)
-    - [第e章](resources\第一章)
-
+- **工具积累**
+    - [网址导航](resources\WEBESITE_GUIDE)
+- **知识学习**
+    - [机器学习评价指标](resources\Metrics)
